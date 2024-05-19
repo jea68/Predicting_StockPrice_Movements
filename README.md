@@ -1,44 +1,58 @@
-# Overview
+# Project: Predicting Nasdaq Closing Price Movements
 
-https://www.kaggle.com/competitions/optiver-trading-at-the-close
+## Overview
 
-Developed a model capable of predicting the closing price movements for hundreds of Nasdaq listed stocks using data from the order book and the closing auction of the stock.  (Target = The 60 second future move in the wap of the stock, less the 60 second future move of the synthetic index. Only provided for the train set.)
-The model predicts the future price movements of stocks relative to the price future price movement of a synthetic index composed of NASDAQ-listed stocks.
-Information from the auction can be used to adjust prices, assess supply and demand dynamics, and identify trading opportunities.
+This project aims to predict the closing price movements for hundreds of Nasdaq-listed stocks using order book and closing auction data. The focus is on the final ten minutes of trading, characterized by rapid price fluctuations and volatility. 
 
-# Details about the Order Book and Auction
-Each trading day on the Nasdaq Stock Exchange concludes with the Nasdaq Closing Cross auction. This process establishes the official closing prices for securities listed on the exchange. These closing prices serve as key indicators for investors, analysts and other market participants in evaluating the performance of individual securities and the market as a whole.
-
-In the last ten minutes of the Nasdaq exchange trading session, market makers merge traditional order book data with auction book data. This ability to consolidate information from both sources is critical for providing the best prices to all market participants.
-
-## Order Books and Auction Books
-1. Order Book:
-- Continuous Trading: In an order book system, trading occurs continuously throughout the trading session. Buyers and sellers can place orders at any time, and trades are executed as soon as matching orders are found. Order book operates on Price-time priority
-- Price Discovery: Prices are determined dynamically based on the continuous interaction between buy and sell orders. The order book displays the current best bid and ask prices, along with the depth of liquidity at various price levels.
-- Market Liquidity: Liquidity is typically spread out across various price levels, reflecting the ongoing trading activity.
-
-2. Auction Book:
-- Discrete Trading: In an auction book system, trading occurs at specific intervals or scheduled times. Orders are collected and matched during these auction periods, and trades are executed at a single price or within a price range determined by the auction mechanism.
-- Price Discovery: Prices are determined through the auction process, where buy and sell orders are matched based on predetermined rules or algorithms. The auction mechanism may consider various factors such as order size, price, and time priority.
-- Market Liquidity: Liquidity is concentrated within each auction period, as orders are matched and executed in bulk. The depth of liquidity may vary depending on the frequency and duration of auction sessions.
-
-In summary, while both order books and auction books facilitate trading in financial markets, they differ in terms of trading dynamics, price discovery mechanisms, and liquidity distribution. Order books provide continuous trading and dynamic price discovery, while auction books offer discrete trading and price determination through scheduled auction sessions. Market makers often leverage both types of trading mechanisms to optimize their trading strategies and provide liquidity to the market.
+Using the dataset described below LSTM and LightGBM models were developed to predictsstock price movements relative to a synthetic index, aiding in price adjustment and trading opportunities.
 
 
-# Evaluation 
+## Dataset Description
 
-My Model is evaluated on the Mean Absolute Error (MAE) between the predicted return and the observed target. The formula is given by:
+The dataset includes historic data for the ten-minute closing auction on the Nasdaq Stock Exchange. Key columns include:
 
-MAE=1n∑i=1n|yi−xi|
-Where:
+- `stock_id`: Unique identifier for the stock.
+- `date_id`: Unique identifier for the date.
+- `imbalance_size`: Amount unmatched at the reference price.
+- `imbalance_buy_sell_flag`: Direction of auction imbalance.
+- `reference_price`, `matched_size`, `far_price`, `near_price`: Various price metrics.
+- `bid_price`, `ask_price`, `bid_size`, `ask_size`: Competitive buy/sell levels in the non-auction book.
+- `wap`: Weighted average price in the non-auction book.
+- `seconds_in_bucket`: Seconds elapsed since the auction's start.
+- `target`: 60-second future move in the WAP of the stock relative to the synthetic index.
 
-n is the total number of data points.
-y_i is the predicted value for data point i.
-x_i is the observed value for data point i.
+## Model Evaluation
 
-https://www.kaggle.com/competitions/optiver-trading-at-the-close
+Models were evaluated using the Mean Absolute Error (MAE):
 
+\[ MAE = \frac{1}{n} \sum_{i=1}^{n} |y_i - x_i| \]
 
-# More details
+Where \( y_i \) is the predicted value and \( x_i \) is the observed value.
 
-https://www.kaggle.com/code/tomforbes/optiver-trading-at-the-close-introduction
+## Project Summary
+
+### Skills Demonstrated
+- **Data Science**:
+  - Data cleaning, preprocessing, and feature engineering.
+  - Exploratory Data Analysis (EDA).
+  - Time series analysis.
+
+- **Machine Learning**:
+  - Feature selection and model tuning.
+  - Training and evaluating LSTM and LightGBM models.
+
+### Models Used
+1. **LSTM**: Suitable for capturing long-term dependencies in time series data.
+2. **LightGBM**: Efficient gradient boosting framework for large datasets.
+
+### Achievements
+- Merged order book and auction data for comprehensive analysis.
+- LightGBM outperformed LSTM in predictive accuracy, achieving a lower MAE.
+
+## Conclusion
+
+The project successfully developed a model for predicting Nasdaq closing price movements, with LightGBM demonstrating superior performance. The skills and insights gained are applicable to real-world financial forecasting and high-frequency trading.
+
+## Further Information
+
+For more details, visit the [Kaggle competition page](https://www.kaggle.com/competitions/optiver-trading-at-the-close).
