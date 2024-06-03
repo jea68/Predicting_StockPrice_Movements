@@ -4,7 +4,7 @@
 
 This project aims to predict the closing price movements for hundreds of Nasdaq-listed stocks using order book and closing auction data. The focus is on the final ten minutes of trading, characterized by rapid price fluctuations and volatility. 
 
-Using the dataset described below LSTM and LightGBM models were developed to predictsstock price movements relative to a synthetic index, aiding in price adjustment and trading opportunities.
+Using the dataset described below, LSTM and LightGBM models were developed to predict stock price movements relative to a synthetic index, aiding in price adjustment and trading opportunities.
 
 The notebook titled **Predicting Price Movements.ipynb** contains the notebook for this project, and the notebook **Baseline Solution** is a simple solution base case model.
 
