@@ -32,6 +32,7 @@ The notebook titled **Predicting Price Movements.ipynb** contains the notebook f
 ## Conclusion
 
 The project successfully developed a model for predicting Nasdaq closing price movements, with LightGBM demonstrating superior performance. The skills and insights gained apply to real-world financial forecasting and high-frequency trading.
+
 (see **Project Discussion.md** for a detailed review)
 
 ## Further Information
