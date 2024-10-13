@@ -6,7 +6,7 @@ This project aims to predict the closing price movements for hundreds of Nasdaq-
 
 Using the dataset described below, LSTM and LightGBM models were developed to predict stock price movements relative to a synthetic index, aiding in price adjustment and trading opportunities.
 
-The notebook titled **Predicting Price Movements.ipynb** contains the notebook for this project, and the notebook **Baseline Solution** is a simple solution base case model.
+The notebook titled [**Predicting Price Movements.ipynb**](https://github.com/jea68/Predicting_StockPrice_Movements/blob/main/Predicting%20Price%20Movements.ipynb) contains the notebook for this project, and the notebook **Baseline Solution** is a simple solution base case model.
 
 
 ## Project Summary
