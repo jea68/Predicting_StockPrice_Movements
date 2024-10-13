@@ -11,16 +11,6 @@ The notebook titled **Predicting Price Movements.ipynb** contains the notebook f
 
 ## Project Summary
 
-### Skills Demonstrated
-- **Data Science**:
-  - Data cleaning, preprocessing, and feature engineering.
-  - Exploratory Data Analysis (EDA).
-  - Time series analysis.
-
-- **Machine Learning**:
-  - Feature selection and model tuning.
-  - Training and evaluating LSTM and LightGBM models.
-
 ### Models Used
 1. **LSTM**: Suitable for capturing long-term dependencies in time series data.
 2. **LightGBM**: Efficient gradient boosting framework for large datasets.
